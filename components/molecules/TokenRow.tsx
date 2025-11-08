@@ -19,8 +19,8 @@ export const TokenRow = memo(function TokenRow({ token, onRowClick }: TokenRowPr
   return (
     <div
       className={cn(
-        "grid gap-3 p-3 rounded-lg border border-border hover:border-accent-foreground/20 transition-all duration-150 cursor-pointer group",
-        "grid-cols-[2fr_1fr_1fr_1fr_1fr_1fr]",
+        "grid gap-4 p-3 rounded-lg border border-border hover:border-accent-foreground/20 transition-all duration-150 cursor-pointer group",
+        "grid-cols-[2fr_1.2fr_1fr_1.2fr_1fr_0.8fr]",
         bgChangeClass
       )}
       onClick={() => onRowClick(token)}

@@ -81,7 +81,7 @@ export const TokenColumn = memo(function TokenColumn({
       </div>
 
       {/* Column Headers */}
-      <div className="grid gap-3 px-3 py-2 text-muted-foreground text-xs font-medium border-b border-border grid-cols-[2fr_1fr_1fr_1fr_1fr_1fr]">
+      <div className="grid gap-4 px-3 py-2 text-muted-foreground text-xs font-medium border-b border-border grid-cols-[2fr_1.2fr_1fr_1.2fr_1fr_0.8fr]">
         <div>Token</div>
         <SortButton field="price" label="Price" currentField={sortField} direction={sortDirection} onSort={onSort} />
         <SortButton field="priceChange24h" label="24h %" currentField={sortField} direction={sortDirection} onSort={onSort} />
