@@ -19,30 +19,31 @@ export const TokenRow = memo(function TokenRow({ token, onRowClick }: TokenRowPr
   return (
     <div
       className={cn(
-        "grid grid-cols-7 gap-4 p-4 rounded-lg border border-border hover:border-accent-foreground/20 transition-all duration-200 cursor-pointer group",
+        "grid gap-3 p-3 rounded-lg border border-border hover:border-accent-foreground/20 transition-all duration-150 cursor-pointer group",
+        "grid-cols-[2fr_1fr_1fr_1fr_1fr_1fr]",
         bgChangeClass
       )}
       onClick={() => onRowClick(token)}
     >
       {/* Token Info */}
-      <div className="col-span-2 flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center font-bold text-sm">
+      <div className="flex items-center gap-2 min-w-0">
+        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center font-bold text-sm flex-shrink-0">
           {token.symbol.substring(0, 2)}
         </div>
-        <div>
-          <div className="font-semibold text-sm group-hover:text-primary transition-colors">
+        <div className="min-w-0 flex-1">
+          <div className="font-semibold text-sm group-hover:text-primary transition-colors truncate">
             {token.symbol}
           </div>
-          <div className="text-xs text-muted-foreground">{token.name}</div>
+          <div className="text-xs text-muted-foreground truncate">{token.name}</div>
         </div>
       </div>
 
       {/* Price */}
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center min-w-0">
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <div className={cn("font-mono text-sm font-medium", priceChangeClass)}>
+              <div className={cn("font-mono text-sm font-medium truncate", priceChangeClass)}>
                 {formatPrice(token.price)}
               </div>
             </TooltipTrigger>
@@ -54,10 +55,10 @@ export const TokenRow = memo(function TokenRow({ token, onRowClick }: TokenRowPr
       </div>
 
       {/* 24h Change */}
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center min-w-0">
         <div
           className={cn(
-            "text-sm font-medium",
+            "text-sm font-medium truncate",
             token.priceChange24h >= 0 ? "text-green-500" : "text-red-500"
           )}
         >
@@ -66,12 +67,12 @@ export const TokenRow = memo(function TokenRow({ token, onRowClick }: TokenRowPr
       </div>
 
       {/* Volume */}
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center min-w-0">
         <Popover>
           <PopoverTrigger asChild>
-            <div className="text-sm font-medium flex items-center gap-1 cursor-help">
-              {formatPrice(token.volume24h)}
-              <Info className="w-3 h-3 text-muted-foreground" />
+            <div className="text-sm font-medium flex items-center gap-1 cursor-help min-w-0">
+              <span className="truncate">{formatPrice(token.volume24h)}</span>
+              <Info className="w-3 h-3 text-muted-foreground flex-shrink-0" />
             </div>
           </PopoverTrigger>
           <PopoverContent>
@@ -86,13 +87,13 @@ export const TokenRow = memo(function TokenRow({ token, onRowClick }: TokenRowPr
       </div>
 
       {/* Liquidity */}
-      <div className="flex flex-col justify-center">
-        <div className="text-sm">{formatPrice(token.liquidity)}</div>
+      <div className="flex flex-col justify-center min-w-0">
+        <div className="text-sm truncate">{formatPrice(token.liquidity)}</div>
       </div>
 
       {/* Holders */}
-      <div className="flex flex-col justify-center">
-        <div className="text-sm">{formatNumber(token.holders)}</div>
+      <div className="flex flex-col justify-center min-w-0">
+        <div className="text-sm truncate">{formatNumber(token.holders)}</div>
       </div>
     </div>
   )

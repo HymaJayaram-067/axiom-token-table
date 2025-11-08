@@ -61,21 +61,21 @@
 @layer utilities {
   .text-price-up {
     @apply text-green-500;
-    transition: color 0.3s ease-in-out;
+    transition: color 0.15s ease-in-out;
   }
   
   .text-price-down {
     @apply text-red-500;
-    transition: color 0.3s ease-in-out;
+    transition: color 0.15s ease-in-out;
   }
   
   .bg-price-up {
     @apply bg-green-500/10;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.15s ease-in-out;
   }
   
   .bg-price-down {
     @apply bg-red-500/10;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.15s ease-in-out;
   }
 }
